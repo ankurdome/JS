@@ -41,5 +41,32 @@ const arrr2 = arr.splice(1,3);
 console.log("C",arrr2);
 console.log(arrr2);
 
+const marvel_heroes = ["spidey","ironman","thor"];
+const dc = ["superman","flash","batman"];
+
+//marvel_heroes.push(dc); // gives nested array
+console.log(marvel_heroes); 
+//console.log(marvel_heroes[3][1]); //flash
+
+const allheroes = marvel_heroes.concat(dc);
+console.log(allheroes); //gives single array with both sub arrays
+
+const spreaded_heros = [...marvel_heroes, ...dc]; //similar to concat
+console.log(spreaded_heros);
+
+const nested_Arrays = [1,2,3,[4,5,6],7,[6,7,[4,5]]];
+console.log(nested_Arrays);
+const flattenedarray = nested_Arrays.flat(Infinity);
+console.log(flattenedarray);
+
+console.log(Array.isArray("ANkkyr")); //false - checks if its array 
+console.log(Array.from("Ankur")); //converts to array -- [ 'A', 'n', 'k', 'u', 'r' ]
+console.log(Array.from({name: "ANkur"})); //gives empty array when cant decide whether array is needed of keys or values
+
+let score1 = 100;
+let score2 = 200;
+let scorre3 = 300;
+console.log(Array.of(score1,score2,scorre3)); //makes out array of scores
+
 
 

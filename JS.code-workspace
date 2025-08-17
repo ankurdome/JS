@@ -2,15 +2,7 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../DevOps Demonstration"
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"iostream": "cpp"
-		},
-		"liveServer.settings.multiRootWorkspaceName": "DOM"
-	}
+	"settings": {}
 }
