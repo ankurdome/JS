@@ -152,3 +152,28 @@ const mycoding = [
 mycoding.forEach((item) => {
     console.log(item.languageName);
 })
+
+const value = coding.forEach( (item) =>{
+    console.log(item);
+    return item; //foreach doesnt return any value
+})
+console.log(value);
+
+
+//in order to have retuenable value
+const myNums = [1,2,3,4,5,6,7,8,9,10];
+const newNums= myNums.filter( (num)=> {
+   return num>4
+
+})
+console.log(newNums); //[ 5, 6, 7, 8, 9, 10 ]
+
+
+//another way around
+newnnums =[];
+myNums.forEach( (nums) => {
+    if(nums>3){
+        newnnums.push(nums);
+    }
+})
+console.log(newnnums);

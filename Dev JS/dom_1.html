@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id ="title" class="heading">DOM Learning on myslef <span style="display: none;">test text</span></h1>
+        <p>lorem ipsum dolar soit amet. </p>
+        <h6>loppppppisishf </h6>
+        <h6>wuwuwuwuuwuwu</h6>
+        <input type="password" name="password" id="password">
+    </div>
+    <div>
+        <ul>
+            <li class="list-item">heyy</li>
+            <li class="list-item">thereee</li>
+            <li class="list-item">ankuuuu</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!-- 
+
+##getElementById(): ---<><><><><><><><><><><><><><><><><><><>
+This method allows direct access to a specific HTML element 
+within a web page by its unique id attribute.
+
+document.getElementById('title') ->
+<h1 id="title" class="heading">DOM Learning on myslef</h1>
+
+document.getElementById('title').id (here getEle... used to locate HTML element with id title and then we search for attribute id with 'title')
+'title'
+
+document.getElementById('title').class 
+undefined
+
+document.getElementById('title').className (here getEle... used to locate HTML element with id title and then searches for the class name atrribute of this title id)
+'heading'
+
+---<><><><><><><><><><><><><><><><><><><>----
+
+
+
+
+
+document.getElementById('title').getAttribute('id') (okay so, getelebyid will return string and then getAttribute func will extract the very id only)
+'title'
+
+document.getElementById('title').getAttribute('class') (similar as above just class is extracted)
+'heading'
+
+document.getElementById('title').setAttribute('class','test') (it sets class attribute of 'title' id to test)
+undefined
+
+document.getElementById('title').getAttribute('class') (since classname is changed, it will return test and not heading)
+'test'
+
+---<><><><><><><><><><><><><><><><><><><>----
+
+
+
+
+const title = document.getElementById('title')  (wrapped this func in title)
+undefined
+
+
+(now we can use diiferent style on them)
+title
+<h1 id=​"title" class=​"test">​DOM Learning on myslef​</h1>​
+
+title.style.backgroundColor = 'green'
+'green'
+
+title.style.padding = "15px"
+'15px'
+
+title.style.borderRadius= "15px"
+'15px'
+
+
+
+down you can see that the innerText and innerContent has been used.
+we have added span in the id ="title", and given display style as hidden.
+so in console of browser window, we run both of these commands we get diff
+
+innerText: display the text visible to us on screen
+innerContent: displays everything that is in HTML but hidden by CSS.
+innerHTML: similar to content but give html code too
+
+title.innerText
+'DOM Learning on myslef'
+
+title.textContent
+'DOM Learning on myslef test text'
+
+title.innerHTML
+'DOM Learning on myslef <span style="display: none;">test text</span>'
+
+
+---<><><><><><><><><><><><><><><><><><><>----
+
+
+
+document.querySelector('h6') (we get the first query )
+<h6>​loppppppisishf ​</h6>​
+
+document.querySelector('#title') (CSS selectors can be used here)
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelector('input[type="password"]')
+<input type=​"password" name=​"password" id=​"password">​
+
+
+
+const myul = document.querySelector("ul")
+undefined
+
+myul.querySelector('li')
+<li>​…​</li>​
+
+const turngreen = document.querySelector("li")
+undefined
+
+turngreen.style.backgroundColor = "green"
+'green'
+
+turngreen.style.padding = "15px"
+'15px'
+
+turngreen.style.borderRadius = "10px"
+'10px'
+
+
+
+
+document.querySelectorAll('li')
+NodeList(3) [li, li, li].          <<-- this looks like array but aint a array
+
+const tempList = document.querySelectorAll("li")
+undefined
+
+const myH1 = document.querySelectorAll('h1')
+undefined
+
+myH1.style.color = "green". [][][][][]gives error
+VM2770:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+    at <anonymous>:1:18
+
+
+myH1[0].style.color = "green".   [][][][][][] to avoid this one one use foreach loop
+'green'
+
+
+
+//here we use foreach looop >>>>>>>>>>>
+
+const tempList = document.querySelectorAll("li")
+
+tempList.forEach(function (l) {
+    l.style.backgroundColor = "green"
+})
+
+
+document.getElementsByClassName('list item')
+HTMLCollection []
+
+const templcas= document.getElementsByClassName('list item')
+undefined
+
+templcas.forEach(function (li){
+    console.log(li)
+})
+
+VM3495:1 Uncaught TypeError: templcas.forEach is not a function
+    at <anonymous>:1:10
+
+
+document.getElementsByClassName('list-item')
+HTMLCollection(3) [li.list-item, li.list-item, li.list-item]
+
+const templcas= document.getElementsByClassName('list-item')
+undefined
+
+Array.from(templcas)
+(3) [li.list-item, li.list-item, li.list-item]
+
+myConvertedArray = Array.from(templcas)
+(3) [li.list-item, li.list-item, li.list-item]
+
+myConvertedArray.forEach(function (li) {
+    li.style.color="orange"
+})
+undefined
+
+
+
+document.querySelectorAll('h3')
+
+const allH3 = document.querySelectorAll('h3')
+
+allH3[0].innerText
+'Creation at Netscape'
+-->
