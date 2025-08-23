@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    document.getElementById('owl').onclick = function(){ //not a good way to use events
+        alert('owl clicked')
+    }
+    //we need to use event listeners as it provides propagation.
+    
+    /*
+    Events to Learn:
+        type
+        timestamp
+        preventDefault
+        target
+        toElement
+        srcElement
+        currentTarget
+        clientX, clientY, screenX, screenY
+        altkey, ctrlkey, shiftkey, keyCode
+    */
+
+    //attachEvent - old fashion in Internet Explorer
+    //JQuery - on
+
+    document.getElementById('owl').addEventListener('click', function(e){ // e is event object
+        console.log("owl clicked");
+        e.stopPropagation(); //wrote after LOC 63
+    }, false) //by default, 3rd parameter is false
+    //we have two - event bubling, event capturing. false means event bubbling
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
+        
+    }, false)
+
+    //event buuble - okay so the flow is inside to outwards. the owl is inside of ul, so when owl is clicked:
+        // owl clicked
+        // clicked inside the ul
+    //where as if others clicked, it simply gives: clicked inside the ul
+
+    //event capturing: so, if we want to reverse this trend to outside-in, simply change third parameter to true.
+        // clicked inside the ul
+        // owl clicked
+
+    //e.stopPropagation() - its used to stop progpagation. in our case only owl is clicked will be printed
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('google clicked');
+    }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);  // one whole li
+        console.log(e.target.tagName);  
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode;
+            removeIt.remove()  
+        }
+        // removeIt.parentNode.removeChild(removeIt) - hard way
+        
+    }, false);
+</script>
+</html>

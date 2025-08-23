@@ -1,3 +1,5 @@
+//OBJECT is a collection of key-value pairs.
+
 // objects can be made by: literal and construct
 //constructor makes singleton instance.
 

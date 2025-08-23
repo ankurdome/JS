@@ -44,7 +44,7 @@ function calculatedCartPrice(...num1){
 
 console.log(calculatedCartPrice(2)); //2
 
-//if youre adding too much items, we need rest operator ...
+//if youre adding too much items, we need rest operator (...)
 console.log(calculatedCartPrice(2,55,6667,9));
  
  

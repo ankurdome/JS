@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - 4</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="Language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+<style>
+
+</style>
+<script>
+    //-----------Adding Values ---------------
+
+    //Way -1 
+    const addChild = document.createTextNode('Python');
+    const ul = document.querySelector('ul')
+    ul.appendChild(addChild)
+
+    //Way-2
+    function addLang(addLangg){
+        const li = document.createElement('li');
+        li. innerHTML = `${addLangg}`
+        const addlanguage = document.querySelector('.Language')
+        addlanguage.appendChild(li);
+    }
+    addLang('Ruby');
+    addLang('TypeScript`')
+
+    //Way-3 --->>>> BEST WAY
+    function addOPtiLang(langNAame){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langNAame));
+        document.querySelector('.Language').appendChild(li);
+
+    }
+    addOPtiLang("GoLang")
+
+    //-----------Edit Values ---------------
+
+    const secondLang = document.querySelector('li:nth-child(2)');
+    const newLi = document.createElement('li');
+    newLi.textContent = "Mojo";
+    secondLang.replaceWith(newLi);
+
+    //Way - 2
+    const firsyLang = document.querySelector('li:first-child');
+    firsyLang.outerHTML = '<li> TypeScript </li>'
+
+    //-----------Remove Values ---------------
+
+    const LastLang = document.querySelector('li:last-child');
+    LastLang.remove();
+    
+</script>
+</html>
