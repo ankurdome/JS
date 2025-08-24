@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cAnkur Dome</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //way 1
+    setTimeout(function(){ //this settimeout function basically waits for 2 secs then executes the function
+        console.log("Ankur");
+        
+    }, 2000); 
+
+
+    //way 2- using handler (reference)
+    const sayAnkur = function(){ 
+        console.log("Ankur");
+    }
+    setTimeout(sayAnkur,2000); //sayAnkur is handler here, ie, reference
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Ankur is the best";
+    }
+
+    const changeME = setTimeout(changeText,2000);
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeME); // uses to stop the timeout before happening
+        console.log("STOPPED");
+    })
+</script>
+</html>

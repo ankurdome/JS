@@ -12,7 +12,6 @@ Execution Context:
 
 Blocking: blocks the flow of program
 eg: file read sync
-
 Non-BLocking: does not block executiom
 eg: read file async
 
